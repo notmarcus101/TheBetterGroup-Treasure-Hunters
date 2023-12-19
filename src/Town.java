@@ -11,6 +11,8 @@ public class Town {
     private Terrain terrain;
     private String printMessage;
     private boolean toughTown;
+    private String townTreasure;
+    private static String[] treasure = {"crown", "trophy", "gem", "dust"};
     private String town = "";
 
     /**
@@ -22,6 +24,7 @@ public class Town {
     public Town(Shop shop, double toughness) {
         this.shop = shop;
         this.terrain = getNewTerrain();
+        townTreasure = treasure[(int) (Math.random() * 4)];
 
         // the hunter gets set using the hunterArrives method, which
         // gets called from a client class

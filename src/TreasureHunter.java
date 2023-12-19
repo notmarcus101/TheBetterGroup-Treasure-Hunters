@@ -135,7 +135,9 @@ public class TreasureHunter {
      * @param choice The action to process.
      */
     private void processChoice(String choice) {
-        if (choice.equals("b") || choice.equals("s")) {
+        if (choice.equals("h")) {
+
+        } else if (choice.equals("b") || choice.equals("s")) {
             currentTown.enterShop(choice);
         } else if (choice.equals("m")) {
             if (currentTown.leaveTown()) {
