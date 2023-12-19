@@ -113,6 +113,7 @@ public class TreasureHunter {
             System.out.println("***");
             System.out.println(hunter);
             System.out.println(currentTown);
+            System.out.println("(H)unt for treasure!");
             System.out.println("(B)uy something at the shop.");
             System.out.println("(S)ell something at the shop.");
             System.out.println("(M)ove on to a different town.");
