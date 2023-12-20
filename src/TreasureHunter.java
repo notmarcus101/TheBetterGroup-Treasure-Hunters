@@ -76,12 +76,12 @@ public class TreasureHunter {
         }
         if (testMode) {
             //in test mode, the hunter starts off with 100 gold
-            hunter.changeGold(90);
+            hunter.changeGold(96);
 
             //and has every item in their kit
-            String[] items = {"Water", "Rope", "Machete", "Horse", "Boat"};
+            String[] items = {"water", "rope", "machete", "horse", "boat", "boots"};
             for (String item : items) {
-                hunter.buyItem(item, 0);
+                hunter.buyItem(item, 1);
             }
         }
 
@@ -136,15 +136,18 @@ public class TreasureHunter {
      */
     private void processChoice(String choice) {
         if (choice.equals("h")) {
-            int listLen = hunter.getTreasures().length;
-            hunter.huntTreasure(currentTown.getTownTreasure());
-            if (hunter.getTreasures().length == listLen) {
-                System.out.println("You already found the " + currentTown.getTownTreasure() + ", you didn't get anything else.");
+            System.out.println("You go hunting for treasure in the town!");
+            if (currentTown.isSearched()) {
+                System.out.println("But, you already searched this town for its treasure. Don't be greedy.");
             } else {
-                if (!currentTown.getTownTreasure().equals("dust")) {
+                if (currentTown.huntTreasure()) {
                     System.out.println("You found the " + currentTown.getTownTreasure() + " in this town!");
                 } else {
-                    System.out.println("You found a pile of dust, and decide that it's best to leave it behind...");
+                    if (currentTown.getTownTreasure().equals("dust")) {
+                        System.out.println("You found a pile of dust. You decide it's best to leave it behind...");
+                    } else {
+                        System.out.println("You already found the " + currentTown.getTownTreasure() + " somewhere!");
+                    }
                 }
             }
         } else if (choice.equals("b") || choice.equals("s")) {

@@ -19,7 +19,7 @@ public class Hunter {
      */
     public Hunter(String hunterName, int startingGold) {
         this.hunterName = hunterName;
-        kit = new String[5]; // only 5 possible items can be stored in kit
+        kit = new String[6]; // only 5 possible items can be stored in kit
         treasures = new String[3]; // only 3 treasures
         gold = startingGold;
     }
@@ -202,23 +202,21 @@ public class Hunter {
         return -1;
     }
 
-    public String[] huntTreasure(String treasure) {
-        for (int i = 0; i < treasures.length - 1; i++) {
+    public boolean addTreasureToList(String townTreasure) {
+        for (int i = 0; i < treasures.length; i++) {
             if (treasures[i] == null) {
                 break;
-            } else if (treasures[i].equals(treasure)) {
-                return treasures;
+            } else if (treasures[i].equals(townTreasure)) {
+                return false;
             }
         }
-        if (!treasure.equals("dust")) {
-            for (int i = 0; i < treasures.length - 1; i++) {
-                if (treasures[i] == null) {
-                    treasures[i] = treasure;
-                    break;
-                }
+        for (int i = 0; i < treasures.length; i++) {
+            if (treasures[i] == null) {
+                treasures[i] = townTreasure;
+                return true;
             }
         }
-        return treasures;
+        return false;
     }
 
     public String[] getTreasures() {

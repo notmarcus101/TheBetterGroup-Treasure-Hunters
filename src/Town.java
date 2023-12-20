@@ -14,6 +14,7 @@ public class Town {
     private String townTreasure;
     private static String[] treasure = {"crown", "trophy", "gem", "dust"};
     private String town = "";
+    private boolean townTreasureFound = false;
 
     /**
      * The Town Constructor takes in a shop and the surrounding terrain, but leaves the hunter as null until one arrives.
@@ -179,5 +180,20 @@ public class Town {
         } else {
             System.out.println("You don't have a shovel to dig with!");
         }
+    }
+
+    public boolean isSearched() {
+        return townTreasureFound;
+    }
+
+    public boolean huntTreasure() {
+        if (!townTreasure.equals("dust")) {
+            if (hunter.addTreasureToList(townTreasure)) {
+                townTreasureFound = true;
+                return true;
+            }
+            return false;
+        }
+        return false;
     }
 }
