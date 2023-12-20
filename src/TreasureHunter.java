@@ -136,7 +136,17 @@ public class TreasureHunter {
      */
     private void processChoice(String choice) {
         if (choice.equals("h")) {
-
+            int listLen = hunter.getTreasures().length;
+            hunter.huntTreasure(currentTown.getTownTreasure());
+            if (hunter.getTreasures().length == listLen) {
+                System.out.println("You already found the " + currentTown.getTownTreasure() + ", you didn't get anything else.");
+            } else {
+                if (!currentTown.getTownTreasure().equals("dust")) {
+                    System.out.println("You found the " + currentTown.getTownTreasure() + " in this town!");
+                } else {
+                    System.out.println("You found a pile of dust, and decide that it's best to leave it behind...");
+                }
+            }
         } else if (choice.equals("b") || choice.equals("s")) {
             currentTown.enterShop(choice);
         } else if (choice.equals("m")) {

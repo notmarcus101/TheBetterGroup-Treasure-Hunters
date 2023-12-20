@@ -220,4 +220,8 @@ public class Hunter {
         }
         return treasures;
     }
+
+    public String[] getTreasures() {
+        return treasures;
+    }
 }

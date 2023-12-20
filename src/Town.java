@@ -40,6 +40,10 @@ public class Town {
         return printMessage;
     }
 
+    public String getTownTreasure() {
+        return townTreasure;
+    }
+
     /**
      * Assigns an object to the Hunter in town.
      *
