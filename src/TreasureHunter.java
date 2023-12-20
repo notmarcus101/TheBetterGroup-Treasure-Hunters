@@ -18,6 +18,7 @@ public class TreasureHunter {
     private boolean hardMode;
     private boolean testMode;
     private boolean easyMode;
+    private boolean samuraiMode;
 
     /**
      * Constructs the Treasure Hunter game.
@@ -56,8 +57,10 @@ public class TreasureHunter {
             hardMode = true;
         } else if (hard.equals("test")) {
             testMode = true;
-        } else if (hard.equals("easy")) {
+        } else if (hard.equals("e")) {
             easyMode = true;
+        } else if (hard.equals("s")) {
+            samuraiMode = true;
         }
     }
 
@@ -65,11 +68,11 @@ public class TreasureHunter {
      * Creates a new town and adds the Hunter to it.
      */
     private void enterTown() {
-        double markdown = 0.25;
+        double markdown = 0.5;
         double toughness = 0.4;
         if (hardMode) {
             // in hard mode, you get less money back when you sell items
-            markdown = 0.5;
+            markdown = 0.25;
 
             // and the town is "tougher"
             toughness = 0.75;
@@ -83,6 +86,15 @@ public class TreasureHunter {
             for (String item : items) {
                 hunter.buyItem(item, 1);
             }
+        }
+        if (easyMode) {
+            hunter.changeGold(hunter.getGold()*2);
+            markdown = 1;
+            toughness = 0.2;
+            currentTown.easyMode(true);
+        }
+        if (samuraiMode) {
+            Shop.setSamuraiMode();
         }
 
         // note that we don't need to access the Shop object
