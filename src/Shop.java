@@ -56,7 +56,7 @@ public class Shop {
             System.out.print("What're you lookin' to buy? ");
             String item = SCANNER.nextLine().toLowerCase();
                 int cost = checkMarketPrice(item, true);
-                if (cost == 0) {
+                if (cost == -1) {
                     System.out.println("We ain't got none of those.");
                 } else {
                     if (hunter.hasItemInKit("sword")) {
@@ -87,6 +87,7 @@ public class Shop {
             }
         }
         System.out.println("You left shop.");
+
     }
 
     /**
@@ -181,7 +182,7 @@ public class Shop {
         } else if (item.equals("sword")) {
             return SWORD_COST;
         } else {
-            return 0;
+            return -1;
         }
     }
 

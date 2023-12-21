@@ -50,6 +50,10 @@ public class Town {
         return townTreasure;
     }
 
+    public void updateNews (String str) {
+        printMessage = str;
+    }
+
     /**
      * Assigns an object to the Hunter in town.
      *
@@ -80,16 +84,19 @@ public class Town {
                 hunter.removeItemFromKit(item);
                 if (!(item.equals("horse") || item.equals("rope") || item.equals("water"))) {
                     printMessage += "\nUnfortunately, your " + Colors.PURPLE + item + Colors.RESET + " broke.";
+                    getLatestNews();
                 } else {
                     printMessage += "\nUnfortunately, you lost your " + Colors.PURPLE + item + Colors.RESET + " item.";
+                    getLatestNews();
                 }
             }
 
             return true;
+        } else {
+            printMessage = "You can't leave town, " + hunter.getHunterName() + ". You don't have a " + Colors.PURPLE + terrain.getNeededItem() + Colors.RESET + ".";
+            getLatestNews();
+            return false;
         }
-
-        printMessage = "You can't leave town, " + hunter.getHunterName() + ". You don't have a " + Colors.PURPLE + terrain.getNeededItem() + Colors.RESET + ".";
-        return false;
     }
 
     /**
@@ -118,7 +125,10 @@ public class Town {
             printMessage = Colors.RED + "You couldn't find any trouble" + Colors.RESET;
         } else {
             if (hunter.hasItemInKit("sword")) {
-                printMessage = Colors.RED + "You want trouble strange.... h-hey now.. drop that sword!.. I ain't mean no harm!\nHave mercy! I have a family! Take what you want!";
+                int goldDiff = (int) (Math.random() * 10) + 1;
+                printMessage = Colors.RED + "You want trouble strange.... h-hey now.. drop that sword!.. I ain't mean no harm!\nHave mercy! I have a family! Take what you want!" + Colors.RESET;
+                hunter.changeGold(goldDiff);
+                printMessage += Colors.RED + "\nYou won the brawl and receive " + Colors.YELLOW + goldDiff + Colors.RED + " gold." + Colors.RESET;
             } else {
                 printMessage = Colors.RED + "You want trouble, stranger!  You got it!\nOof! Umph! Ow!\n";
                 int goldDiff = (int) (Math.random() * 10) + 1;
