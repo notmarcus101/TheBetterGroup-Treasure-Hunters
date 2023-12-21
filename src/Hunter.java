@@ -155,6 +155,23 @@ public class Hunter {
         if (!kitIsEmpty()) {
             str += " and " + getInventory();
         }
+        if (treasures[0] == null) {
+            System.out.println("Treasures obtained: none");
+        } else {
+            System.out.print("Treasures obtained: ");
+            for (int i = 0; i < treasures.length - 1; i++) {
+                if (treasures[i] != null) {
+                    System.out.print(treasures[i] + ", ");
+                } else {
+                    System.out.print("___, ");
+                }
+            }
+            if (treasures[treasures.length - 1] != null) {
+                System.out.println(treasures[treasures.length - 1]);
+            } else {
+                System.out.println("___");
+            }
+        }
         return str;
     }
 
@@ -225,5 +242,12 @@ public class Hunter {
 
     public String[] getTreasures() {
         return treasures;
+    }
+
+    public boolean bankrupt() {
+        if (gold <= 0) {
+            return true;
+        }
+        return false;
     }
 }

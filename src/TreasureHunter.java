@@ -128,7 +128,7 @@ public class TreasureHunter {
     private void showMenu() {
         String choice = "";
 
-        while (!choice.equals("x")) {
+        while (!choice.equals("x") && !hunter.bankrupt()) {
             System.out.println();
             if (justShopped) {
                 System.out.println("You just left the shop.");
@@ -150,6 +150,9 @@ public class TreasureHunter {
             System.out.print("What's your next move? ");
             choice = SCANNER.nextLine().toLowerCase();
             processChoice(choice);
+        }
+        if (hunter.bankrupt()) {
+            System.out.println("You ran out of gold! Try again next time, and maybe don't get into fights you can't win...");
         }
     }
 

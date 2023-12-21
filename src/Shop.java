@@ -86,6 +86,7 @@ public class Shop {
                 }
             }
         }
+        System.out.println("You left shop.");
         TreasureHunter.setJustShopped();
     }
 
