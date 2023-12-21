@@ -19,6 +19,7 @@ public class TreasureHunter {
     private boolean testMode;
     private boolean easyMode;
     private boolean samuraiMode;
+    public static boolean justShopped;
 
     /**
      * Constructs the Treasure Hunter game.
@@ -28,6 +29,11 @@ public class TreasureHunter {
         currentTown = null;
         hunter = null;
         hardMode = false;
+        justShopped = false;
+    }
+
+    public static void setJustShopped () {
+        justShopped = true;
     }
 
     /**
@@ -124,7 +130,12 @@ public class TreasureHunter {
 
         while (!choice.equals("x")) {
             System.out.println();
-            System.out.println(currentTown.getLatestNews());
+            if (justShopped) {
+                System.out.println("You just left the shop.");
+                justShopped = false;
+            } else {
+                System.out.println(currentTown.getLatestNews());
+            }
             System.out.println("***");
             System.out.println(hunter);
             System.out.println(currentTown);
