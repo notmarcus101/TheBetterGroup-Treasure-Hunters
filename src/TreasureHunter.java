@@ -167,7 +167,19 @@ public class TreasureHunter {
                 System.out.println("But, you already searched this town for its treasure. Don't be greedy.");
             } else {
                 if (currentTown.huntTreasure()) {
-                    System.out.println("You found the " + currentTown.getTownTreasure() + " in this town!");
+                    if (currentTown.getTownTreasure().equals("crown")) {
+                        if (currentTown.getTerrain().getTerrainName().equals("Mountains")) {
+                            System.out.println("You found a crown at the peak of the tallest mountain! Who could've left this here..?");
+                        } else if (currentTown.getTerrain().getTerrainName().equals("Ocean")) {
+                            System.out.println("You notice something shiny on the seabed. You swim towards it and see that it's a crown! Seems like Poseidon lost it here.");
+                        } else if (currentTown.getTerrain().getTerrainName().equals("Plains")) {
+                            System.out.println("After hours of digging, you finally notice a shimmer of gold under the earth. You dig some more and take your newfound crown out of the hole you've made.");
+                        } else if (currentTown.getTerrain().getTerrainName().equals("Desert")) {
+                            System.out.println("Sitting atop a cactus, you find a green crown, blending into the green cactus skin. You take it, hoping that no one will come to take it back...");
+                        } else if (currentTown.getTerrain().getTerrainName().equals("Jungle")) {
+                            System.out.println("In a dungeon deep in the jungle, you find a crown on top of a pedestal. Taking it activates a trap, so you hurry out before you get killed.");
+                        }
+                    }
                 } else {
                     if (currentTown.getTownTreasure().equals("dust")) {
                         System.out.println("You found a pile of dust. You decide it's best to leave it behind...");

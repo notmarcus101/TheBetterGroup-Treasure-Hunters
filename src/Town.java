@@ -171,6 +171,10 @@ public class Town {
         }
     }
 
+    public Terrain getTerrain() {
+        return terrain;
+    }
+
     /**
      * Determines whether a used item has broken.
      *
