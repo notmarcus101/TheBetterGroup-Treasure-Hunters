@@ -171,14 +171,30 @@ public class TreasureHunter {
                         if (currentTown.getTerrain().getTerrainName().equals("Mountains")) {
                             System.out.println("You found a crown at the peak of the tallest mountain! Who could've left this here..?");
                         } else if (currentTown.getTerrain().getTerrainName().equals("Ocean")) {
-                            System.out.println("You notice something shiny on the seabed. You swim towards it and see that it's a crown! Seems like Poseidon lost it here.");
+                            System.out.println("You notice something shiny on the seabed. You swim towards it and see that it's a (very rusty) crown! Seems like Poseidon lost it here.");
                         } else if (currentTown.getTerrain().getTerrainName().equals("Plains")) {
                             System.out.println("After hours of digging, you finally notice a shimmer of gold under the earth. You dig some more and take your newfound crown out of the hole you've made.");
                         } else if (currentTown.getTerrain().getTerrainName().equals("Desert")) {
-                            System.out.println("Sitting atop a cactus, you find a green crown, blending into the green cactus skin. You take it, hoping that no one will come to take it back...");
+                            System.out.println("Sitting atop a cactus, you find a green crown on top of a flowering cactus. You take it, hoping that no one will come to take it back...");
                         } else if (currentTown.getTerrain().getTerrainName().equals("Jungle")) {
                             System.out.println("In a dungeon deep in the jungle, you find a crown on top of a pedestal. Taking it activates a trap, so you hurry out before you get killed.");
+                        } else if (currentTown.getTerrain().getTerrainName().equals("Marsh")) {
+                            System.out.println("Walking through the muddy marsh, you... wait, what..? I guess the crown was just in your bag the entire time..?");
                         }
+                    } else if (currentTown.getTownTreasure().equals("trophy")) {
+                         if (currentTown.getTerrain().getTerrainName().equals("Mountains")) {
+                            System.out.println("On top of the tallest mountain you've fittingly named \"Everest\", you find a trophy with a glove frozen to its side. You grab it and take the glove off, silently remorseful.");
+                        } else if (currentTown.getTerrain().getTerrainName().equals("Ocean")) {
+                             System.out.println("In a shipwreck on one of the archipelago's islands, you find a trophy with seaweed and a starfish inside of it. You take it, deciding to preserve its current appearance.");
+                         } else if (currentTown.getTerrain().getTerrainName().equals("Plains")) {
+                             System.out.println("You won the town's annual \"Town's Toughest Person\" contest, and got the first place trophy! The stacks of green paper is an added benefit, I guess.");
+                         } else if (currentTown.getTerrain().getTerrainName().equals("Desert")) {
+                             System.out.println("After hours of wandering the vast desert and many mirages disappointing you, you're glad to see a shiny cup of water on the ground. You take it with you, somewhat glad to see it's not a mirage, even more so when you realize what it is.");
+                         } else if (currentTown.getTerrain().getTerrainName().equals("Jungle")) {
+                             System.out.println("Maybe all of the snake bites and eating poisonous mushrooms was worth it, as you finally find the fabled \"Lost Trophy\" in the middle of some overgrown weeds. Huh, I feel itchy..?");
+                         } else if (currentTown.getTerrain().getTerrainName().equals("Marsh")) {
+                             System.out.println("You finally got your hands on the Trophy of the Marsh! Now, the problem is how to get out of the quicksand../");
+                         }
                     }
                 } else {
                     if (currentTown.getTownTreasure().equals("dust")) {
