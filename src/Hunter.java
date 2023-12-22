@@ -244,6 +244,19 @@ public class Hunter {
         return treasures;
     }
 
+    public boolean hasAllTreasures() {
+        int check = 0;
+        for (String treasure : treasures) {
+            if (treasure != null) {
+                check++;
+            }
+        }
+        if (check == 3) {
+            return true;
+        }
+        return false;
+    }
+
     public boolean bankrupt() {
         if (gold <= 0) {
             return true;

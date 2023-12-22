@@ -128,7 +128,7 @@ public class TreasureHunter {
     private void showMenu() {
         String choice = "";
 
-        while (!choice.equals("x") && !hunter.bankrupt()) {
+        while (!choice.equals("x") && !hunter.bankrupt() && !hunter.hasAllTreasures()) {
             System.out.println();
             if (justShopped) {
                 System.out.println("You just left the shop.");
@@ -153,6 +153,9 @@ public class TreasureHunter {
         }
         if (hunter.bankrupt()) {
             System.out.println("You ran out of gold! Try again next time, and maybe don't get into fights you can't win...");
+        }
+        if (hunter.hasAllTreasures()) {
+            System.out.println("You found all of the treasures! Congratulations, you can call yourself a true Treasure Hunter!");
         }
     }
 
@@ -181,7 +184,7 @@ public class TreasureHunter {
                         } else if (currentTown.getTerrain().getTerrainName().equals("Marsh")) {
                             System.out.println("Walking through the muddy marsh, you... wait, what..? I guess the crown was just in your bag the entire time..?");
                         }
-                    } else if (currentTown.getTownTreasure().equals("trophy")) {
+                    } if (currentTown.getTownTreasure().equals("trophy")) {
                          if (currentTown.getTerrain().getTerrainName().equals("Mountains")) {
                             System.out.println("On top of the tallest mountain you've fittingly named \"Everest\", you find a trophy with a glove frozen to its side. You grab it and take the glove off, silently remorseful.");
                         } else if (currentTown.getTerrain().getTerrainName().equals("Ocean")) {
@@ -195,6 +198,20 @@ public class TreasureHunter {
                          } else if (currentTown.getTerrain().getTerrainName().equals("Marsh")) {
                              System.out.println("You finally got your hands on the Trophy of the Marsh! Now, the problem is how to get out of the quicksand../");
                          }
+                    } if (currentTown.getTownTreasure().equals("gem")) {
+                        if (currentTown.getTerrain().getTerrainName().equals("Mountains")) {
+                            System.out.println("In a cave on the face of the mountain, you see some rare quartz buried in the rock. You slowly dig it out, careful not to damage it.");
+                        } else if (currentTown.getTerrain().getTerrainName().equals("Ocean")) {
+                            System.out.println("In some sunken ruins, you find an aquamarine gem between the rubble, and quickly claim it as yours.");
+                        } else if (currentTown.getTerrain().getTerrainName().equals("Plains")) {
+                            System.out.println("For saving the town from the wily gang, you've earned yourself an emerald from the sheriff! Not sure how he got it, but it's yours now!");
+                        } else if (currentTown.getTerrain().getTerrainName().equals("Desert")) {
+                            System.out.println("In the desert, you found a small geode, that when you broke open appeared to be chrysoberyl! You pocket the newfound gem, wondering how much gold this'll net you...");
+                        } else if (currentTown.getTerrain().getTerrainName().equals("Jungle")) {
+                            System.out.println("Hidden within a tree's bark, you find a jade gemstone. Hoping there aren't any traps, you take it, right before getting an arrow to the knee.");
+                        } else if (currentTown.getTerrain().getTerrainName().equals("Marsh")) {
+                            System.out.println("Walking through the muddy marsh, you step on something sharp. You wince in pain and look down to see what it is, and are delightfully surprised to see it's a (very valuable) tourmaline gemstone!");
+                        }
                     }
                 } else {
                     if (currentTown.getTownTreasure().equals("dust")) {
